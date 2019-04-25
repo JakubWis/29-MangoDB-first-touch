@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/nodeappdatabase');
+mongoose.connect('mongodb+srv://mrkubasny:170399@firstcluster-ffspa.mongodb.net/test?retryWrites=true');
 
 //new user Schema
 const userSchema = new Schema({
@@ -151,8 +151,8 @@ const findBennyAndRemove = function() {
         
 }
 
-clearDB()
-    .then(function() {
+//clearDB()
+    //.then(function() {
         Promise.all([kenny.save(), mark.save(), benny.save()])
             .then(findAllUsers)
             .then(findSpecificRecord)
@@ -162,4 +162,4 @@ clearDB()
             .then(findKennyAndDelete)
             .then(findBennyAndRemove)
             .catch(console.log.bind(console))
-    })
+    //})
